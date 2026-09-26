@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kinematic-4d-swarm-deconfliction"
+version = "1.0.0"
+description = "Dual-Use 4D Multi-Agent Pathfinding (MAPF) & Control Barrier Function (CBF) Swarm Deconfliction Engine for tactical combat drone funneling and gigafactory AGV gridlock elimination."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+authors = [
+    { name = "Ahmed Hassan", email = "ahmed.hassan.aah@gmail.com" }
+]
+keywords = [
+    "defense-tech",
+    "swarm-intelligence",
+    "control-barrier-functions",
+    "cbf",
+    "mapf",
+    "dubins-paths",
+    "agv-robotics",
+    "warehouse-automation",
+    "collision-avoidance",
+    "dual-use",
+    "sovereignty",
+    "hard-real-time",
+    "autonomous-drones"
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Mathematics",
+    "Topic :: Security"
+]
+
+[project.scripts]
+kinematic-4d-swarm-deconfliction = "cli:main"
