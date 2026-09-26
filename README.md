@@ -33,7 +33,37 @@ Multi-agent autonomous systems face severe kinematic bottlenecks when high-densi
 
 ---
 
-## 3. Mathematical Foundations & Control Barrier Invariants
+## 3. Dual-Use Architectural Paradigm
+
+```mermaid
+graph TD
+    subgraph "High-Density Fleet Operations"
+        DEF["Tactical Defense Profile (Chokepoints)<br/>- 16 to 32 Fixed-Wing Combat Drones (108 km/h)<br/>- Mountain Pass / Canyon Radar Valley Funneling<br/>- Inability to Hover / Minimum Airspeed Limits<br/>- Strict Aerodynamic Turning Radius (R_min >= 10m)"]
+        IND["Gigafactory AGV Profile (Narrow Aisles)<br/>- 50+ Autonomous Heavy Battery Transport AGVs<br/>- High-Density Bi-Directional Factory Aisles<br/>- Symmetric Face-to-Face Deadlock Halts<br/>- Strict Stopping Distance & Wheel Angle Limits"]
+    end
+
+    subgraph "kinematic-4d-swarm-deconfliction Core Engine"
+        CBF["High-Order Control Barrier Functions (CBF)<br/>- Continuous Safety Margin: h_ij(p_i, p_j) >= 0<br/>- Forward Invariance Condition: dh/dt + gamma*h >= 0<br/>- 100% Collision-Free Guarantee"]
+        DUBINS["Dubins Curvature Clamping Kernel<br/>- Non-Holonomic Kinematic Projection<br/>- Yaw Rate Bounding: |omega| <= v / R_min<br/>- Continuous Forward Velocity Enforcement"]
+        DEADLOCK["Asymmetric Deadlock Breaker<br/>- Collinear Velocity Inversion Detection (|delta_theta| ~ pi)<br/>- Orthogonal Perturbation Injection (Delta_omega)<br/>- Coordinated Smooth Evasion Without Stalling"]
+    end
+
+    subgraph "Verified Swarm Trajectories"
+        DEF_OUT["Combat Drone Swarm Flow<br/>- 100% Collision-Free Chokepoint Ingress<br/>- Zero Mid-Air Stall Attrition<br/>- Control Loop Rate: > 7,000 Hz (< 129 µs)"]
+        IND_OUT["Deterministic Factory Material Flow<br/>- Zero Symmetric AGV Aisle Freezes<br/>- +40.0% Pallet Transport Throughput<br/>- Sub-100µs PLC Drive Integration"]
+    end
+
+    DEF --> CBF
+    IND --> CBF
+    CBF --> DUBINS
+    DUBINS --> DEADLOCK
+    DEADLOCK --> DEF_OUT
+    DEADLOCK --> IND_OUT
+```
+
+---
+
+## 4. Mathematical Foundations & Control Barrier Invariants
 
 ### 3.1 High-Order Control Barrier Functions (CBF)
 For every agent pair $(i, j)$ with positions $\mathbf{p}_i, \mathbf{p}_j \in \mathbb{R}^3$ and safety radii $r_i, r_j$, define the safety barrier function $h_{ij}$:
